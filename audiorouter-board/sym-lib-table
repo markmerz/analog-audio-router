@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name audiorouter-board-rescue)(type Legacy)(uri ${KIPRJMOD}/audiorouter-board-rescue.lib)(options "")(descr ""))
+  (lib (name 6-way-rca-connector)(type Legacy)(uri /home/markko/my_kicad_lib/6-way-rca-connector.lib)(options "")(descr ""))
+  (lib (name hk19f)(type Legacy)(uri /home/markko/my_kicad_lib/hk19f.lib)(options "")(descr ""))
+)

@@ -1,0 +1,108 @@
+
+(rules PCB audiorouter-board
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1707)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.9)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 400.2 (type default_PowerLine))
+    (clear 50.0 (type smd_smd))
+    (clear 400.2 (type smd_PowerLine))
+    (clear 400.2 (type "kicad_default"_PowerLine))
+    (clear 400.2 (type PowerLine_PowerLine))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-PowerLine" "Via[0-1]_800:400_um" PowerLine
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    PowerLine "Via[0-1]_800:400_um-PowerLine"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(D1-Pad2)" "Net-(D2-Pad2)" "Net-(D3-Pad2)" "Net-(D4-Pad2)" "Net-(D5-Pad2)" "Net-(D6-Pad2)" "Net-(D7-Pad2)" "Net-(D8-Pad2)"
+    "Net-(D9-Pad2)" "Net-(D10-Pad2)" "Net-(D11-Pad2)" "Net-(D12-Pad2)" "Net-(D13-Pad2)" "Net-(D14-Pad2)" "Net-(D15-Pad2)" "Net-(D16-Pad2)"
+    "Net-(D17-Pad2)" "Net-(D18-Pad2)" "Net-(D19-Pad2)" "Net-(D20-Pad2)" "Net-(D21-Pad2)" "Net-(D22-Pad2)" "Net-(D23-Pad2)" "Net-(D24-Pad2)"
+    "Serial_IN" RClock SerialClock "Serial_OUT" "Net-(Q1-Pad2)" "Net-(Q2-Pad2)" "Net-(Q3-Pad2)" "Net-(Q4-Pad2)"
+    "Net-(Q5-Pad2)" "Net-(Q6-Pad2)" "Net-(Q7-Pad2)" "Net-(Q8-Pad2)" "Net-(Q9-Pad2)" "Net-(Q10-Pad2)" "Net-(Q11-Pad2)" "Net-(Q12-Pad2)"
+    "Net-(Q13-Pad2)" "Net-(Q14-Pad2)" "Net-(Q15-Pad2)" "Net-(Q16-Pad2)" "Net-(Q17-Pad2)" "Net-(Q18-Pad2)" "Net-(Q19-Pad2)" "Net-(Q20-Pad2)"
+    "Net-(Q21-Pad2)" "Net-(Q22-Pad2)" "Net-(Q23-Pad2)" "Net-(Q24-Pad2)" "IN_1_B_1" "IN_1_B_2" "IN_1_B_3" "IN_1_B_4"
+    "IN_2_B_1" "IN_2_B_2" "IN_2_B_3" "IN_2_B_4" "IN_3_B_1" "IN_3_B_2" "IN_3_B_3" "IN_3_B_4"
+    "IN_4_B_1" "IN_4_B_2" "IN_4_B_3" "IN_4_B_4" "IN_5_B_1" "IN_5_B_2" "IN_5_B_3" "IN_5_B_4"
+    "IN_6_B_1" "IN_6_B_2" "IN_6_B_3" "IN_6_B_4" "Net-(U1-Pad9)" "Net-(U2-Pad9)" "Net-(C3-Pad1)" OutPutEnable
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class PowerLine
+    "Net-(C1-Pad9)" GND "Net-(C1-Pad7)" "Net-(C1-Pad6)" "Net-(C1-Pad4)" "Net-(C1-Pad3)" "Net-(C1-Pad1)" "Net-(C2-Pad1)"
+    "Net-(C2-Pad3)" "Net-(C2-Pad4)" "Net-(C2-Pad6)" "Net-(C2-Pad7)" "Net-(C2-Pad9)" VCC "bus_1_L" "bus_1_R"
+    "bus_2_L" "bus_2_R" "bus_3_L" "bus_3_R" "bus_4_L" "bus_4_R" PowerIn
+    (clearance_class PowerLine)
+    (via_rule PowerLine)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
