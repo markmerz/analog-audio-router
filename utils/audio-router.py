@@ -24,17 +24,26 @@ def main():
 
 def find():
     for device_candidate in glob.glob("/dev/ttyUSB*"):
-        with serial.Serial(device_candidate, 115200, timeout=2, dsrdtr=False) as ser:
-            ser.write(b'\n')
-            while True:
-                res = ser.read(10)
-                if len(res) == 0:
-                    break
-            ser.write(b'ping\n')
-            res = ser.readline().decode("latin-1")
-            if res == "Audio Switch OK\n":
-                print(device_candidate)
-                break
+        do_retry = True
+        retry_count = 3
+        while do_retry and retry_count > 0:
+            do_retry = False
+            try:
+                with serial.Serial(device_candidate, 115200, timeout=2, dsrdtr=False) as ser:
+                    ser.write(b'\n')
+                    while True:
+                        res = ser.read(10)
+                        if len(res) == 0:
+                            break
+                    ser.write(b'ping\n')
+                    res = ser.readline().decode("latin-1")
+                    if res == "Audio Switch OK\n":
+                        print(device_candidate)
+                        return
+            except serial.serialutil.SerialException:
+                do_retry = True
+                retry_count -= 1
+
     else:
         print("Device was not found.", file=sys.stderr)
         sys.exit(1)

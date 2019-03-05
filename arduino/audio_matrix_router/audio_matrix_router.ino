@@ -16,6 +16,7 @@ char inData[COMMAND_LINE_BUFFER_LEN];
 uint8_t inDataIndex = 0;
 
 uint16_t pingCounter = 0;
+uint8_t powerState = 0;
 
 void writeState() {
   digitalWrite(latchPin, LOW);
@@ -97,13 +98,13 @@ void handleInput() {
       Serial.print(res);
       Serial.write("\n");
     }
-  } else if (strcmp(inData, "ping") == 0) {    
+  } else if (strcmp(inData, "ping") == 0) {
     Serial.write("Audio Switch OK\n");
   } else if (strcmp(inData, "test_count") == 0) {
-      Serial.write("Test counter: ");
-      Serial.print(pingCounter);
-      Serial.write("\n");
-      pingCounter++;
+    Serial.write("Test counter: ");
+    Serial.print(pingCounter);
+    Serial.write("\n");
+    pingCounter++;
   } else {
     Serial.write("ERROR: Unknown command: ");
     Serial.write(inData);
@@ -117,12 +118,39 @@ void setup() {
   pinMode(dataPin, OUTPUT);
 
   clearState();
-  writeState();
-
+  while(1) {
+    int power = analogRead(A0);
+    if (power < 450) {
+      powerState = 0;
+      break;
+    }
+    if (power > 810) {
+      powerState = 1;
+      writeState();
+      break;
+    }
+  }
+  
   Serial.begin(115200);
   while (!Serial) {}
-//  Serial.print(NUM_BOARDS);
-//  Serial.write(" boards ready\n");
+  //  Serial.print(NUM_BOARDS);
+  //  Serial.write(" boards ready\n");
+}
+
+void checkPower() {
+  int power = analogRead(A0);
+  // 349 off, 912 on
+  if (powerState) {
+    if (power < 450) {
+      powerState = 0;
+    }
+  } else {
+    if (power > 810) {
+      powerState = 1;
+      clearState();
+      writeState();
+    }
+  }
 }
 
 void loop() {
@@ -140,6 +168,9 @@ void loop() {
       inDataIndex = 0;
       Serial.write("ERROR: Buffer full, input rejected.\n");
     }
+  } else {
+    checkPower();
   }
+
 }
 
