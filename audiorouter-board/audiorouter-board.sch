@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:audiorouter-board-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A2 23386 16535
 encoding utf-8
@@ -3070,36 +3069,12 @@ F 3 "" H 13550 8500 50  0001 C CNN
 	1    13550 8500
 	0    -1   -1   0   
 $EndComp
-NoConn ~ 19250 2750
-NoConn ~ 21000 2750
-$Comp
-L Transistor_BJT:PN2222A Q25
-U 1 1 5C2B4DD7
-P 19150 4300
-F 0 "Q25" H 19341 4346 50  0000 L CNN
-F 1 "PN2222A" H 19341 4255 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 19350 4225 50  0001 L CIN
-F 3 "http://www.fairchildsemi.com/ds/PN/PN2222A.pdf" H 19150 4300 50  0001 L CNN
-	1    19150 4300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	15800 2900 16000 2900
 Wire Wire Line
 	15800 4700 16000 4700
 Wire Wire Line
 	15800 6600 16000 6600
-$Comp
-L power:GND #PWR059
-U 1 1 5C2B56F4
-P 19250 4750
-F 0 "#PWR059" H 19250 4500 50  0001 C CNN
-F 1 "GND" H 19255 4577 50  0000 C CNN
-F 2 "" H 19250 4750 50  0001 C CNN
-F 3 "" H 19250 4750 50  0001 C CNN
-	1    19250 4750
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:R R26
 U 1 1 5C2B63C3
@@ -3109,17 +3084,6 @@ F 1 "10k" H 19320 3805 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 19180 3850 50  0001 C CNN
 F 3 "~" H 19250 3850 50  0001 C CNN
 	1    19250 3850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R25
-U 1 1 5C2B6610
-P 18950 3850
-F 0 "R25" H 19020 3896 50  0000 L CNN
-F 1 "220k" H 19020 3805 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 18880 3850 50  0001 C CNN
-F 3 "~" H 18950 3850 50  0001 C CNN
-	1    18950 3850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -3133,43 +3097,10 @@ F 3 "" H 19250 3550 50  0001 C CNN
 	1    19250 3550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	18950 3700 18950 3650
-Wire Wire Line
-	18950 3650 19250 3650
-Wire Wire Line
-	19250 3650 19250 3700
-Wire Wire Line
-	19250 3550 19250 3650
-Connection ~ 19250 3650
-Wire Wire Line
-	19250 4100 19250 4050
-Wire Wire Line
-	18950 4000 18950 4300
-$Comp
-L Device:CP C3
-U 1 1 5C47B7C2
-P 18950 4600
-F 0 "C3" H 19068 4646 50  0000 L CNN
-F 1 "470u" H 19068 4555 50  0000 L CNN
-F 2 "Capacitor_THT:C_Radial_D5.0mm_H11.0mm_P2.00mm" H 18988 4450 50  0001 C CNN
-F 3 "~" H 18950 4600 50  0001 C CNN
-	1    18950 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	18950 4450 18950 4300
-Connection ~ 18950 4300
-Wire Wire Line
-	19250 4750 18950 4750
-Connection ~ 19250 4750
 Text GLabel 19500 4050 2    50   Output ~ 0
 OutPutEnable
 Wire Wire Line
-	19250 4500 19250 4750
-Wire Wire Line
 	19500 4050 19250 4050
-Connection ~ 19250 4050
 Wire Wire Line
 	19250 4050 19250 4000
 $Comp
@@ -3399,4 +3330,10 @@ F 3 "~" H 17900 1650 50  0001 C CNN
 	1    17900 1650
 	1    0    0    -1  
 $EndComp
+Text GLabel 19250 2750 2    50   Input ~ 0
+OutPutEnable
+Text GLabel 21000 2750 2    50   Output ~ 0
+OutPutEnable
+Wire Wire Line
+	19250 3550 19250 3700
 $EndSCHEMATC

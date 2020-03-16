@@ -1,2 +1,3 @@
 (sym_lib_table
+  (lib (name audiorouter-controller-rescue)(type Legacy)(uri ${KIPRJMOD}/audiorouter-controller-rescue.lib)(options "")(descr ""))
 )

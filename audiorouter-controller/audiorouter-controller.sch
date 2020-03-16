@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:audiorouter-controller-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MCU_Module:Arduino_Nano_v3.x A1
+L audiorouter-controller-rescue:Arduino_Nano_v3.x-MCU_Module A1
 U 1 1 5C2DA6F8
 P 4250 3400
 F 0 "A1" H 4100 2200 50  0000 C CNN
@@ -28,7 +27,6 @@ $EndComp
 NoConn ~ 3750 2800
 NoConn ~ 3750 2900
 NoConn ~ 4750 3200
-NoConn ~ 4750 3400
 NoConn ~ 4750 3500
 NoConn ~ 4750 3600
 NoConn ~ 4750 3700
@@ -38,7 +36,6 @@ NoConn ~ 4750 4000
 NoConn ~ 4750 4100
 NoConn ~ 3750 3300
 NoConn ~ 3750 3400
-NoConn ~ 3750 3500
 NoConn ~ 3750 3600
 NoConn ~ 3750 3700
 NoConn ~ 3750 3800
@@ -132,7 +129,7 @@ Text GLabel 2950 4100 0    50   UnSpc ~ 0
 PowerIn
 Text GLabel 1850 3550 0    50   UnSpc ~ 0
 PowerIn
-Text GLabel 4150 2400 1    50   UnSpc ~ 0
+Text GLabel 4150 1900 1    50   UnSpc ~ 0
 PowerIn
 $Comp
 L power:GND #PWR0104
@@ -148,7 +145,6 @@ $EndComp
 NoConn ~ 4250 4400
 NoConn ~ 4450 2400
 NoConn ~ 4350 2400
-NoConn ~ 2350 3450
 NoConn ~ 1850 2950
 NoConn ~ 2350 2950
 NoConn ~ 2350 3250
@@ -213,77 +209,81 @@ F 3 "~" H 3000 1350 50  0001 C CNN
 	1    3000 1350
 	1    0    0    -1  
 $EndComp
-$Comp
-L Mechanical:MountingHole_Pad H5
-U 1 1 5C5595CB
-P 5350 1500
-F 0 "H5" H 5450 1551 50  0000 L CNN
-F 1 "MountingHole_Pad" H 5450 1460 50  0000 L CNN
-F 2 "Connectors:1X01" H 5350 1500 50  0001 C CNN
-F 3 "~" H 5350 1500 50  0001 C CNN
-	1    5350 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole_Pad H6
-U 1 1 5C559649
-P 5350 1950
-F 0 "H6" H 5450 2001 50  0000 L CNN
-F 1 "MountingHole_Pad" H 5450 1910 50  0000 L CNN
-F 2 "Connectors:1X01" H 5350 1950 50  0001 C CNN
-F 3 "~" H 5350 1950 50  0001 C CNN
-	1    5350 1950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole_Pad H7
-U 1 1 5C5596FC
-P 6750 1500
-F 0 "H7" H 6850 1551 50  0000 L CNN
-F 1 "MountingHole_Pad" H 6850 1460 50  0000 L CNN
-F 2 "Connectors:1X01" H 6750 1500 50  0001 C CNN
-F 3 "~" H 6750 1500 50  0001 C CNN
-	1    6750 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole_Pad H8
-U 1 1 5C55978A
-P 6750 2000
-F 0 "H8" H 6850 2051 50  0000 L CNN
-F 1 "MountingHole_Pad" H 6850 1960 50  0000 L CNN
-F 2 "Connectors:1X01" H 6750 2000 50  0001 C CNN
-F 3 "~" H 6750 2000 50  0001 C CNN
-	1    6750 2000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0105
-U 1 1 5C5598FB
-P 5350 1600
-F 0 "#PWR0105" H 5350 1350 50  0001 C CNN
-F 1 "GND" H 5355 1427 50  0000 C CNN
-F 2 "" H 5350 1600 50  0001 C CNN
-F 3 "" H 5350 1600 50  0001 C CNN
-	1    5350 1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0106
-U 1 1 5C5599EC
-P 5350 2050
-F 0 "#PWR0106" H 5350 1800 50  0001 C CNN
-F 1 "GND" H 5355 1877 50  0000 C CNN
-F 2 "" H 5350 2050 50  0001 C CNN
-F 3 "" H 5350 2050 50  0001 C CNN
-	1    5350 2050
-	1    0    0    -1  
-$EndComp
-Text GLabel 6750 2100 0    50   UnSpc ~ 0
-SerialClock
-Text GLabel 6750 1600 0    50   UnSpc ~ 0
-SerialClock
 Wire Wire Line
 	4750 2800 4950 2800
 NoConn ~ 4750 2900
+$Comp
+L Device:D D1
+U 1 1 5E5BB20F
+P 4150 2150
+F 0 "D1" V 4196 2071 50  0000 R CNN
+F 1 "N4007" V 4105 2071 50  0000 R CNN
+F 2 "Diode_THT:D_T-1_P2.54mm_Vertical_AnodeUp" H 4150 2150 50  0001 C CNN
+F 3 "~" H 4150 2150 50  0001 C CNN
+	1    4150 2150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4150 2400 4150 2350
+Wire Wire Line
+	4150 2000 4150 1900
+$Comp
+L Device:R R2
+U 1 1 5E5BF7E7
+P 3600 2350
+F 0 "R2" V 3393 2350 50  0000 C CNN
+F 1 "6.8k" V 3484 2350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical" V 3530 2350 50  0001 C CNN
+F 3 "~" H 3600 2350 50  0001 C CNN
+	1    3600 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5E5C12BB
+P 3100 2350
+F 0 "R1" V 2893 2350 50  0000 C CNN
+F 1 "6.8k" V 2984 2350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical" V 3030 2350 50  0001 C CNN
+F 3 "~" H 3100 2350 50  0001 C CNN
+	1    3100 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5E5C1EB9
+P 2900 2450
+F 0 "#PWR01" H 2900 2200 50  0001 C CNN
+F 1 "GND" H 2905 2277 50  0000 C CNN
+F 2 "" H 2900 2450 50  0001 C CNN
+F 3 "" H 2900 2450 50  0001 C CNN
+	1    2900 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 2450 2900 2350
+Wire Wire Line
+	2900 2350 2950 2350
+Wire Wire Line
+	3250 2350 3350 2350
+Wire Wire Line
+	3750 2350 4150 2350
+Connection ~ 4150 2350
+Wire Wire Line
+	4150 2350 4150 2300
+Text GLabel 4900 3400 2    50   UnSpc ~ 0
+PowerMeasure
+Text GLabel 3350 2200 1    50   UnSpc ~ 0
+PowerMeasure
+Wire Wire Line
+	3350 2200 3350 2350
+Connection ~ 3350 2350
+Wire Wire Line
+	3350 2350 3450 2350
+Wire Wire Line
+	4900 3400 4750 3400
+Text GLabel 2350 3450 2    50   Output ~ 0
+OutputEnable
+Text GLabel 3750 3500 0    50   Output ~ 0
+OutputEnable
 $EndSCHEMATC
