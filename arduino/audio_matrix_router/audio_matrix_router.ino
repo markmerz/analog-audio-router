@@ -98,11 +98,15 @@ void handleInput() {
     clearState();
     Serial.write("OK\n");
   } else if (strcmp(inData, "commit") == 0) {
-    if (testState()) {
-      writeState();
-      Serial.write("OK\n");
+    if (powerState) {
+      if (testState()) {
+        writeState();
+        Serial.write("OK\n");
+      } else {
+        Serial.write("ERROR: not commiting too many connections.\n"); // because power module from ebay might expode!
+      }
     } else {
-      Serial.write("ERROR: not commiting too many connections.\n"); // because power module from ebay might expode!
+      Serial.write("ERROR: not commiting, daughter boards are not powered.\n");
     }
   } else if (strncmp(inData, "sethard ", 8) == 0) {
     int board, chip, value;
@@ -188,7 +192,6 @@ void setup() {
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
 
-  // digitalWrite(outputEnable, HIGH);
   pinMode(outputEnable, INPUT); // to Z-mode. Hardware has pullups.
 
   pinMode(LED_BUILTIN, OUTPUT); // led is on when running on external power
@@ -206,7 +209,7 @@ void setup() {
 
 void checkPower() {
   int power = analogRead(A0);
-  // 349 off, 912 on
+
 #define VOLTAGE10V 740
 
   if (powerState) { // when incoming power is less then 10V then we set 595 output enable pins high disabling them
