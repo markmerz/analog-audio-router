@@ -1,4 +1,4 @@
-update=E 16 märts 2020 16:41:10 EET
+update=T 14 apr   2020 22:45:44 EEST
 version=1
 last_client=kicad
 [general]
