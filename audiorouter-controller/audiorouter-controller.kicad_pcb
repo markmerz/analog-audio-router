@@ -1,9 +1,9 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.1.5-1.fc31)
+(kicad_pcb (version 20171130) (host pcbnew 5.1.5-2.fc32)
 
   (general
     (thickness 1.6)
-    (drawings 4)
-    (tracks 231)
+    (drawings 10)
+    (tracks 233)
     (zones 0)
     (modules 18)
     (nets 32)
@@ -693,7 +693,7 @@
     (tags "mounting hole 3.2mm no annular m3")
     (path /5C54AA8E)
     (attr virtual)
-    (fp_text reference H1 (at 0 -4.2) (layer F.SilkS)
+    (fp_text reference H1 (at 0 -4.2) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value MountingHole (at 0 4.2) (layer F.Fab) hide
@@ -713,7 +713,7 @@
     (tags "mounting hole 3.2mm no annular m3")
     (path /5C54AB34)
     (attr virtual)
-    (fp_text reference H2 (at 0 -4.2) (layer F.SilkS)
+    (fp_text reference H2 (at 0 -4.2) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value MountingHole (at 0 4.2) (layer F.Fab) hide
@@ -733,7 +733,7 @@
     (tags "mounting hole 3.2mm no annular m3")
     (path /5C54AB7F)
     (attr virtual)
-    (fp_text reference H3 (at 0 -4.2) (layer F.SilkS)
+    (fp_text reference H3 (at 0 -4.2) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value MountingHole (at 0 4.2) (layer F.Fab) hide
@@ -753,7 +753,7 @@
     (tags "mounting hole 3.2mm no annular m3")
     (path /5C54ABDB)
     (attr virtual)
-    (fp_text reference H4 (at 0 -4.2) (layer F.SilkS)
+    (fp_text reference H4 (at 0 -4.2) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value MountingHole (at 0 4.2) (layer F.Fab) hide
@@ -1088,11 +1088,30 @@
     )
   )
 
+  (gr_text 16 (at 148.336 56.642) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (gr_text 1 (at 113.284 56.896) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (gr_text 1 (at 112.268 89.154) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text 1 (at 177.546 63.246) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text - (at 159.004 89.916) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text + (at 173.736 89.916) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (gr_line (start 101.6 96.52) (end 101.6 50.8) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 187.96 96.52) (end 101.6 96.52) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 187.96 50.8) (end 187.96 96.52) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 101.6 50.8) (end 187.96 50.8) (layer Edge.Cuts) (width 0.15))
 
+  (via (at 146.812 61.722) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 5))
   (segment (start 137.16 64.77) (end 138.2853 64.77) (width 0.25) (layer F.Cu) (net 1))
   (segment (start 161.9015 70.922) (end 144.156 70.922) (width 0.25) (layer F.Cu) (net 1))
   (segment (start 144.156 70.922) (end 138.2853 65.0513) (width 0.25) (layer F.Cu) (net 1))
@@ -1149,6 +1168,7 @@
   (via (at 177.8 53.34) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 5))
   (via (at 172.72 53.34) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 5))
   (via (at 111.252 52.578) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 5))
+  (via (at 155.956 58.166) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 5))
   (segment (start 180.34 81.28) (end 178.4897 81.28) (width 1) (layer F.Cu) (net 6))
   (segment (start 168.91 87.63) (end 172.1397 87.63) (width 1) (layer F.Cu) (net 6))
   (segment (start 172.1397 87.63) (end 178.4897 81.28) (width 1) (layer F.Cu) (net 6))
